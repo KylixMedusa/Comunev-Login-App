@@ -75,7 +75,10 @@
                 </div>
                 <div class="div">
                     <h5>Country</h5>
-                    <input (focus)="addfocus($event)" (blur)="addblur($event)" type="name" name="country" class="input">
+                    <input (focus)="addfocus($event)" (blur)="addblur($event)" type="name" name="country" class="input" list="countries">
+                    <datalist id="countries">
+                        <option *ngFor="let country of countries" value="{{country}}"></option>
+                      </datalist>
                 </div>
             </div>
             <div *ngIf="!registershowing" class="input-div one">
