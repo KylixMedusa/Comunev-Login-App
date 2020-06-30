@@ -1,0 +1,109 @@
+
+<div class="container" (window:resize)="resize()">
+    <div id="side--content" class="side-content">
+        <h2>{{sidetitle}}</h2>
+        <p>{{sidep1}}<br> {{sidep2}}</p>
+        <button (click)="login_register()">{{sidebutton}}</button>
+    </div>
+    <div id="login--content" class="login-content" >
+        <div class="login-change">
+            <button (click)="registershowing= false; this.logintitle='Sign In'">Sign IN</button>
+            <button (click)="registershowing= true; this.logintitle='Create Account'">Sign UP</button>
+            <div *ngIf="!registershowing" class="toggler1"></div>
+            <div *ngIf="registershowing" class="toggler2"></div>
+        </div>
+        <form>
+            <h2 class="py-2 title">{{logintitle}}</h2>
+            <!--This profile pic option is added just extra-->
+            <div *ngIf="registershowing" class="profile-img">
+                <img src={{profile_image}}>
+                <div class="darken"></div>
+                <input type="file" id="img" name="img" accept="image/*" #profilepic (change)="viewpic(profilepic.files[0])">
+                <label for="img">+</label>
+            </div>
+            <!--This profile pic option is added just extra-->
+            <div *ngIf="registershowing" class="firstlastname">
+                <div class="input-div firstname">
+                    <div class="i">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>First Name</h5>
+                        <input  (focus)="addfocus($event)" (blur)="addblur($event)" type="text" name="Name" class="input">
+                    </div>
+                </div>
+                <div class="input-div lastname">
+                    <div class="i">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Last Name</h5>
+                        <input  (focus)="addfocus($event)" (blur)="addblur($event)" type="text" name="Name" class="input">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="registershowing" class="input-div name ">
+                <div class="i">
+                    <i class="fa fa-2x fa-envelope"></i>
+                </div>
+                <div class="div">
+                    <h5>Username</h5>
+                    <input  (focus)="addfocus($event)" (blur)="addblur($event)" type="email" name="Name" class="input">
+                </div>
+            </div>
+            <div *ngIf="registershowing" class="input-div pass">
+                <div class="i">
+                    <i class="fa fa-2x fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input (focus)="addfocus($event)" (blur)="addblur($event)" type="password" name="password" class="input" >
+                </div>
+            </div>
+            <div *ngIf="registershowing" class="input-div calendar">
+                <div class="i">
+                    <i class="fa fa-2x fa-calendar"></i>
+                </div>
+                <div class="div">
+                    <h5>Date of Birth</h5>
+                    <input (focus)="addfocus($event)" (blur)="addblur($event)" type="date" name="date" class="input">
+                </div>
+            </div>
+            <div *ngIf="registershowing" class="input-div">
+                <div class="i">
+                    <i class="fa fa-2x fa-map"></i>
+                </div>
+                <div class="div">
+                    <h5>Country</h5>
+                    <input (focus)="addfocus($event)" (blur)="addblur($event)" type="name" name="country" class="input">
+                </div>
+            </div>
+            <div *ngIf="!registershowing" class="input-div one">
+                <div class="i">
+                    <i class="fa fa-2x fa-envelope"></i>
+                </div>
+                <div class="div">
+                    <h5>Email</h5>
+                    <input (focus)="addfocus($event)" (blur)="addblur($event)" type="email" #email name="email" class="input">
+                </div>
+            </div>
+            <div *ngIf="!registershowing" class="input-div pass">
+                <div class="i">
+                    <i class="fa fa-2x fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input (focus)="addfocus($event)" (blur)="addblur($event)" type="password" name="password" class="input" >
+                </div>
+            </div>
+            <div *ngIf="!registershowing" class="input" style="text-align: left; padding-left: 5px; margin-bottom: 10px;">
+                <input type="checkbox" id="rememberme" name="rememberme"> &nbsp;
+                <label for="rememberme"> Remember Me</label><br>
+            </div>
+            <div *ngIf="!registershowing" class="link-box">
+                <a class="a-right" >Forgot Password?</a>
+            </div>
+            <input type="submit" class="btn" value="{{loginbutton}}">
+        </form>
+    </div>
+</div>
